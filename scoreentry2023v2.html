@@ -152,7 +152,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: dodgerBlue;
+      background: indigo;
     }
 
     .holesinfoout {
@@ -184,7 +184,7 @@
       border-style: solid solid solid solid;
       /* t, r, b, l */
       border-color: rgb(30, 130, 255);
-      background: dodgerBlue;
+      background: indigo;
     }
     
     #hcpwrapper,
@@ -192,7 +192,7 @@
       border-style: solid solid solid solid;
       /* t, r, b, l */
       border-color: rgb(30, 130, 255);
-      background: dodgerBlue;
+      background: indigo;
     }
 
     .numx {
@@ -212,7 +212,7 @@
       display: grid;
       /* grid-template-columns: auto auto auto auto auto auto; */
       grid-template-columns: auto 30% auto;
-      background-color: dodgerBlue;
+      background-color: indigo;
       color: white;
       gap: 0px;
       scroll-snap-align: start;
@@ -281,7 +281,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: dodgerBlue;
+      background-color: indigo;
       background-color: rgba(0, 0, 0, 0.7);
     }
 
@@ -302,7 +302,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: dodgerBlue;
+      background-color: indigo;
       background-color: rgba(0, 0, 0, 0.7);
     }
 
@@ -1622,7 +1622,7 @@
     //=============================================================  
     function togglecontrast() {
       var elements = document.getElementsByClassName('wrapperforscoring'); // get all elements
-      // toggle blue and dodgerBlue
+      // toggle blue and indigo
       if (elements[0].style.backgroundColor !== "blue") {
         elements[0].style.backgroundColor = "blue"
         elements[1].style.backgroundColor = "blue"
@@ -1631,11 +1631,11 @@
         document.getElementById("submit").style.backgroundColor = "blue"
         document.body.style.fontWeight = "700";
       } else {
-        elements[0].style.backgroundColor = "dodgerBlue"
-        elements[1].style.backgroundColor = "dodgerBlue"
-        document.getElementById("dropbtn").style.backgroundColor = "dodgerBlue"
-        document.getElementById("hcpwrapper").style.backgroundColor = "dodgerBlue"
-        document.getElementById("submit").style.backgroundColor = "dodgerBlue"
+        elements[0].style.backgroundColor = "indigo"
+        elements[1].style.backgroundColor = "indigo"
+        document.getElementById("dropbtn").style.backgroundColor = "indigo"
+        document.getElementById("hcpwrapper").style.backgroundColor = "indigo"
+        document.getElementById("submit").style.backgroundColor = "indigo"
         document.body.style.fontWeight = "400";
       }
     }
