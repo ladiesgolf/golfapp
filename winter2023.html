@@ -122,8 +122,8 @@
 	
 	nav {
 		position: absolute;
-		top: 80px; //100px;
-		left: 80px; //100px;
+		top: 80px;
+		left: 80px;
 		transform: translate(-50%, -50%);
 		border-radius: 5px;
 		width: 75px;
@@ -308,7 +308,7 @@
 		height: 2vh;
 		color: white;
 		font-size: 15px;
-		float:left; //text-align: left;
+		float:left;
 	}
 	
 	#scheduled {
@@ -317,7 +317,7 @@
 	
 	#dcomp1 {
 		float: left;
-		padding left: 5vw;
+		padding-left: 5vw;
 	}
 	
 	#img {
@@ -333,11 +333,9 @@
 	}
 	
 	.contentinfo {
-	font-family: 'Kalam';
+	        font-family: 'Kalam';
 		color: white;
 		font-size: 12px;
-		
-		//width: 100%;
 	}
 	
 	
@@ -351,7 +349,6 @@
                 position: relative;
                 background: indigo;
                 color: white;
-                //border: 1px solid white;
             }
             
             .marquee p {
@@ -436,20 +433,20 @@
 			
 			</div>
 			
+			<div class="contentinfo">
+			hcps, score entry, twos, results, leaderboard
+			</div>
+				
+			<br>
+			<br>
+			<div class="datescontent">
+			<a class="dates" id="scheduled">scheduled ...</a>
+			<br><br>
+			<a class="dates" id="xdcomp1"></a>
+			</div>
+                        <br>
 			
-				<div class="contentinfo">
-			
-				hcps, score entry, twos, results, leaderboard
-				</div>
-				<br>
-				<br>
-				<div class="datescontent"> <a class="dates" id="scheduled">scheduled ...</a>
-					<br>
-					<br>
-					<a class="dates" id="xdcomp1"></a>
-				</div>
-    <br>
-				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="qrladies.png" alt="qr"> </div>
+			<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="qrladies.png" alt="qr"> </div>
 			</div>
 			
 		</section>
@@ -459,59 +456,59 @@
          
 	// array of competition dates
 		 arrComps = [
-      "Dawson 02 October 2023",
-      "Lakes 06 October 2023",
-      "Dawson 09 October 2023",
-      "Lakes 13 October 2023",
-      "Dawson 16 October 2023",
-      "Lakes 20 October 2023",
-      "Dawson 23 October 2023",
-      "Lakes 27 October 2023",
-      "Dawson 30 October 2023",
-      "Lakes 03 November 2023",
-      "OldCourse 06 November 2023",
-      "OldCourse 10 November 2023",
-      "OldCourse 13 November 2023",
-      "OldCourse 17 November 2023",
-      "OldCourse 20 November 2023",
-      "OldCourse 24 November 2023",
-      "Lakes 27 November 2023",
-      "OldCourse 01 December 2023",
-      "OldCourse 04 December 2023",
-      "OldCourse 08 December 2023",
-      "OldCourse 11 December 2023",
-      "Dawson 15 December 2023",
-      "Lakes 18 December 2023",
-      "Dawson 22 December 2023",
-      "Lakes 25 December 2023",
-      "Dawson 29 December 2023",
-      "Dawson 01 January 2024",
-      "Lakes 05 January 2024",
-      "Dawson 08 January 2024",
-      "Lakes 12 January 2024",
-      "Dawson 15 January 2024",
-      "Lakes 19 January 2024",
-      "Dawson 22 January 2024",
-      "Lakes 26 January 2024",
-      "Dawson 29 January 2024",
-      "Dawson 02 February 2024",
-      "Lakes 05 February 2024",
-      "Dawson 09 February 2024",
-      "Lakes 12 February 2024",
-      "Dawson 16 February 2024",
-      "Lakes 19 February 2024",
-      "Dawson 23 February 2024",
-      "Lakes 26 February 2024",
-      "Lakes 01 March 2024",
-      "Dawson 04 March 2024",
-      "Lakes 08 March 2024",
-      "Dawson 11 March 2024",
-      "Lakes 15 March 2024",
-      "Dawson 18 March 2024",
-      "Lakes 22 March 2024",
-      "Dawson 25 March 2024",
-      "Lakes 29 March 2024"
+"Lakes 12 December 2023",
+"Lakes 13 December 2023",
+"Lakes 14 December 2023",
+"Lakes 15 December 2023",
+"Lakes 16 December 2023",
+"Lakes 17 December 2023",
+"Lakes 18 December 2023",
+"Lakes 19 December 2023",
+"Lakes 20 December 2023",
+"Lakes 21 December 2023",
+"Lakes 22 December 2023",
+"Lakes 23 December 2023",
+"Lakes 24 December 2023",
+"Lakes 25 December 2023",
+"Lakes 26 December 2023",
+"Lakes 27 December 2023",
+"Lakes 28 December 2023",
+"Lakes 29 December 2023",
+"Lakes 30 December 2023",
+"Lakes 31 December 2023",
+"OldCourse 01 January 2024",
+"OldCourse 02 January 2024",
+"OldCourse 03 January 2024",
+"OldCourse 04 January 2024",
+"OldCourse 05 January 2024",
+"OldCourse 06 January 2024",
+"OldCourse 07 January 2024",
+"OldCourse 08 January 2024",
+"OldCourse 09 January 2024",
+"OldCourse 10 January 2024",
+"OldCourse 11 January 2024",
+"OldCourse 12 January 2024",
+"OldCourse 13 January 2024",
+"OldCourse 14 January 2024",
+"OldCourse 15 January 2024",
+"OldCourse 16 January 2024",
+"OldCourse 17 January 2024",
+"OldCourse 18 January 2024",
+"OldCourse 19 January 2024",
+"OldCourse 20 January 2024",
+"OldCourse 21 January 2024",
+"OldCourse 22 January 2024",
+"OldCourse 23 January 2024",
+"OldCourse 24 January 2024",
+"OldCourse 25 January 2024",
+"OldCourse 26 January 2024",
+"OldCourse 27 January 2024",
+"OldCourse 28 January 2024",
+"OldCourse 29 January 2024",
+"OldCourse 30 January 2024",
+"OldCourse 31 January 2024"
     ];
+    
  var isTop = true;
 	var menuIsOpen = false;
 	var menuIcon = $('.square_menu_icon');
@@ -521,7 +518,7 @@
 	var three = $('#three');
 	var four = $('#four');
 	var five = $('#five');
-	// menuIcon.click(function() {
+
 	bubblemenu.click(function() {
 		if(isTop === true) {
 			$('#nav').animate({
