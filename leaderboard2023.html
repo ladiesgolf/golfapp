@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="refresh" content="35">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+      <title>winter 2023</title>
+      <meta content="Bryan M" name="author" />
+      <link href="favicon.ico" rel="icon" type="image/x-icon" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+<style>
+
+* {
+    margin: 0;
+    padding: 0;  
+}
+body {
+       color: white;
+      background-color: darkSlateGray;
+      font-family: Arial, Helvetica, sans-serif;
+     // overflow-y: hidden; 
+}
+ 
+    .grid-container {
+      display: grid;
+      grid-template-columns: 15vw auto 15vw 15vw;
+      padding-left: 20px;
+    }
+   
+    .grid-item {
+      padding: 2px;
+      font-family: arial;
+      font-size: 15px; //2vmin;
+      text-align: left;
+    }
+    
+   .grid-item-pos {
+      padding: 2px;
+      font-family: arial;
+      font-size: 15px; //2vmin;
+      text-align: center;
+    }
+    
+     .grid-item-top {
+        display: grid;
+        grid-column: 1 / 5;
+        padding: 2px;
+        font-family: arial;
+        font-size: 15px; //2vmin;
+        text-align: left;           
+   }
+   
+   .grid-item, .grid-item-pos, #footer {
+      animation: fadein 3s linear forwards;
+   }
+
+   @keyframes fadein{
+      0% { opacity: 0.0; }
+      100% { opacity: 1.0; }
+}
+
+#secs {
+       font-family: arial;
+       font-size: 13px;
+       color: #C3CCCC;
+}
+
+#notyet {
+        padding-left: 10px;
+}
+</style>
+<body>
+<div id="notyet"></div>
+
+ <div class="grid-container" id="leaderlist">
+
+ <!-- created by script --> 
+     
+ </div>
+
+</body>
+<script>
+
+document.getElementById("notyet").innerHTML = "Leaderboard refreshing ...<br>"; 
+
+getData()
+
+
+async function getData() {
+
+var dataStream = await fetch(
+  "https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/Leaderboard"
+)
+
+var resultsarray = await dataStream.json();
+
+var displaypos
+var displayplayer
+var displaypoints
+var displaytwos
+var comp
+
+// if not a comp day show message and return to menu
+var dd = new Date();
+var dddate = dd.getDate();
+var ddmonth = dd.getMonth();
+var ddhours = dd.getHours();
+var ddminutes = dd.getMinutes();
+var ddseconds = dd.getSeconds();
+if (ddseconds < 10) {
+    ddseconds = "0" + ddseconds
+}    
+
+var arrPos = []
+var arrPlayer = []
+var arrPoints = []
+var arrTwos = []
+
+// get rid of blanks in array by creating new arrays
+for (var i = 0; i < resultsarray.length; i++) {
+    if (resultsarray[i].player.length > 2) { 
+        arrPos.push(resultsarray[i].pos);
+        arrPlayer.push(resultsarray[i].player);
+        arrPoints.push(resultsarray[i].points);
+        arrTwos.push(resultsarray[i].twos);
+        comp = resultsarray[i].comp;
+    }
+}
+
+arrMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+
+// create HTML
+createDisplay(arrPlayer.length)
+
+if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
+    // comp day
+    for (var i = 0; i < arrPlayer.length; i++) { 
+         // odd number 
+         if (i % 2 !== 0) {
+             displaypos    = '<p style="color:#C3CCCC">' + arrPos[i]    + "</p>";
+             displayplayer = '<p style="color:#C3CCCC">' + arrPlayer[i] + "</p>";
+             displaypoints = '<p style="color:#C3CCCC">' + arrPoints[i] + "</p>";
+             displaytwos   = '<p style="color:#C3CCCC">' + arrTwos[i]   + "</p>";
+         
+             document.getElementById("pos" + i).innerHTML = displaypos
+             document.getElementById("player" + i).innerHTML = displayplayer
+             document.getElementById("points" + i).innerHTML = displaypoints
+             document.getElementById("twos" + i).innerHTML = displaytwos
+         
+         } else {
+             displaypos    = arrPos[i]    + "<br>";
+             displayplayer = arrPlayer[i] + "<br>";
+             displaypoints = arrPoints[i] + "<br>";
+             displaytwos   = arrTwos[i]   + "<br>";
+             
+             document.getElementById("pos" + i).innerHTML = displaypos
+             document.getElementById("player" + i).innerHTML = displayplayer
+             document.getElementById("points" + i).innerHTML = displaypoints
+             document.getElementById("twos" + i).innerHTML = displaytwos
+         }
+    }
+    
+    document.getElementById("notyet").innerHTML = "Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>"; 
+     
+    document.getElementById("footer").innerHTML = "<br>These are the latest 'live' results as they come in, updated automatically every 35 seconds.<br>Your submitted result should be available at next refresh.<br><br>"
+
+} else {
+   // not a comp day or no results
+   document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="170px" width="165px"></img>';
+   document.getElementById("footer").innerHTML = '';  
+   setTimeout(function() {document.getElementById("comp").innerHTML = 
+   "<br><br><br>No results to display<br>returning to menu in 5 seconds" }, 200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = 
+   "<br><br><br>No results to display<br>returning to menu in 4 seconds" },1200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = 
+   "<br><br><br>No results to display<br>returning to menu in 3 seconds" },2200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = 
+   "<br><br><br>No results to display<br>returning to menu in 2 seconds" },3200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = 
+   "<br><br><br>No results to display<br>returning to menu in 1 second"  },4200)
+   setTimeout(function(){ history.go(-2) },5200);  
+}
+
+}
+
+function createDisplay(num) {
+      // create HTML to hold results
+      var select = document.getElementById("leaderlist");
+      // empty names
+      select.innerHTML = "";
+      
+        // create comp holder
+        var el = document.createElement("div");
+        el.id = "comp";
+        el.setAttribute("class", "grid-item-top");
+        select.appendChild(el);
+      
+      // create the right number of holders
+      for (var i = 0; i < num; i++) {
+        var el = document.createElement("div");
+        el.id = "pos" + i;
+        el.setAttribute("class", "grid-item-pos");
+        select.appendChild(el);
+
+        var el = document.createElement("div");
+        el.id = "player" + i;
+        el.setAttribute("class", "grid-item");
+        select.appendChild(el);
+        
+        var el = document.createElement("div");
+        el.id = "points" + i;
+        el.setAttribute("class", "grid-item");
+        select.appendChild(el);
+
+        var el = document.createElement("div");
+        el.id = "twos" + i;
+        el.setAttribute("class", "grid-item");
+        select.appendChild(el);
+
+      }
+      
+        // create footer 
+        var el = document.createElement("div");
+        el.id = "footer";
+        el.setAttribute("class", "grid-item-top");
+        select.appendChild(el);
+      
+    }
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
