@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<title>winter 2023</title>
 	<meta content="Bryan M" name="author" />
-	<meta name="theme-color" content="dimGray">
+	<meta name="theme-color" content="indigo">
 	<link href="wintericon.png" rel="icon" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="180x180" href="wintericon.png"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -20,7 +20,7 @@
 	
 	body {
 		overflow: hidden;
-		background-color: dimGray;
+		background-color: indigo;
 	}
 	
 	::-webkit-scrollbar {
@@ -349,7 +349,7 @@
                 height: 40px;
                 overflow: hidden;
                 position: relative;
-                background: dimGray;
+                background: indigo;
                 color: white;
                 //border: 1px solid white;
             }
@@ -451,18 +451,11 @@
     <br>
 				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="qrladies.png" alt="qr"> </div>
 			</div>
-			<div class="fadein" id="pressbutton"> <img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="pressbuttonflash.png" alt="press"> </div>
+			
 		</section>
 	</body>
 	<script>
-	
-	// hide hands after 1 menu use
-        if ("handspressbutton" in localStorage) {
-        // hide hands
-           document.getElementById("pressbutton").style.visibility = "hidden"
-        } else {
-           localStorage.handspressbutton = "hidden" 
-        }
+
          
 	// array of competition dates
 		 arrComps = [
