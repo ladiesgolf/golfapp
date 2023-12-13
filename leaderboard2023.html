@@ -72,6 +72,13 @@ body {
 }
 </style>
 <body>
+<script>
+   // do this early to avoid too much flick over       
+   // match theme color to background color
+   var backgroundcolor = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
+   document.querySelector("meta[name=theme-color]").setAttribute("content",backgroundcolor);
+</script>
+
 <div id="notyet"></div>
 
  <div class="grid-container" id="leaderlist">
