@@ -1,2 +1,0 @@
-# golfapp
-ladies golf app
