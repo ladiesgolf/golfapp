@@ -536,6 +536,15 @@
 </head>
 
 <body>
+<script>
+   // do this early to avoid too much flick over       
+   // match theme color to background color
+   var backgroundcolor = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
+   document.querySelector("meta[name=theme-color]").setAttribute("content",backgroundcolor);
+</script>
+
+
+
   <div class="container">
     <div class="pagecard" id="setup">
       <table class="table1">
@@ -1101,12 +1110,7 @@
 ["Tina French", 0],
 ["Norma Gilholm", 0]
 ];
-        
-// match theme color to background color
-var backgroundcolor = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
-document.querySelector("meta[name=theme-color]").setAttribute("content",backgroundcolor);
-//---------------------
-
+ 
     // check for any new members etc.
     // setup local dropdown if not there
     if (!("dropdown" in localStorage)) {
