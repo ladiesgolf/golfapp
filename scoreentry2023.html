@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="ie=edge" http-equiv="X-UA-Compatible">
+<!--
   <meta name="theme-color" content="indigo">
+--> 
   <meta content="score input" name="description">
   <meta content="Bryan M" name="author">
   <title>winter 2023</title>
@@ -1106,7 +1108,10 @@
     
     
     
-    
+// match theme color to background color
+var backgroundcolor = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
+document.querySelector("meta[name=theme-color]").setAttribute("content".backgroundcolor);
+//---------------------
     
     
     
