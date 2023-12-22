@@ -29,7 +29,7 @@ body {
       display: grid;
       grid-template-columns: 15vw auto 15vw 15vw;
    //   padding-left: 20px;
-   border: 1px solid #306EFF;
+   border: 1px solid rgba(65, 105, 225);
     }
    
     .grid-item {
@@ -162,9 +162,9 @@ var dataStream = await fetch(
 			   // odd number 
                            if (i % 2 !== 0) {
 		               // light background
-		               bg = '<p style="background:royalBlue;">'
+		               bg = '<p style="background:rgba(65, 105, 225,0.5);">'
 		           } else {
-		               bg = '<p style="background:#306EFF;">'
+		               bg = '<p style="background:rgba(65, 105, 225);">'
 		           } 
 				displaypos    = bg + arrPos[i]    + "</p>";
 				displayplayer = bg + arrPlayer[i] + "</p>";
@@ -178,9 +178,9 @@ var dataStream = await fetch(
 				// new player
 				if (i % 2 !== 0) {
 		                    // light background
-		                    bg = '<p style="background:royalBlue; color:cyan;">'
+		                    bg = '<p style="background:rgba(65, 105, 225,0.5); color:cyan;">'
 		                } else {
-		                    bg = '<p style="background:#306EFF; color: cyan;">'
+		                    bg = '<p style="background:rgba(65, 105, 225); color: cyan;">'
 		                } 
 				displaypos    = bg + arrPos[i]    + "</p>";
 				displayplayer = bg + arrPlayer[i] + "</p>";
@@ -236,7 +236,7 @@ function createDisplay(num) {
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
 	document.getElementById("top1").innerHTML = "&nbsp;"
-	document.getElementById("top1").style.background = "#306EFF";
+	document.getElementById("top1").style.background = "rgba(65, 105, 225)";
 	document.getElementById("top1").style.color = "cyan";
 	
 	var el = document.createElement("div");
@@ -244,7 +244,7 @@ function createDisplay(num) {
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
 	document.getElementById("top2").innerHTML = "&nbsp;"
-	document.getElementById("top2").style.background = "royalBlue";
+	document.getElementById("top2").style.background = "rgba(65, 105, 225,0.5)";
 	document.getElementById("top2").style.color = "cyan";
 	
 	// create the right number of holders
@@ -276,7 +276,7 @@ function createDisplay(num) {
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
 	document.getElementById("bottom1").innerHTML = "&nbsp;"
-	document.getElementById("bottom1").style.background = "royalBlue";
+	document.getElementById("bottom1").style.background = "rgba(65, 105, 225,0.5)";
 	document.getElementById("bottom1").style.color = "cyan";
 	}
 	
@@ -285,7 +285,7 @@ function createDisplay(num) {
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
 	document.getElementById("bottom2").innerHTML = "&nbsp;"
-	document.getElementById("bottom2").style.background = "#306EFF";
+	document.getElementById("bottom2").style.background = "rgba(65, 105, 225)";
 	document.getElementById("bottom2").style.color = "cyan";
 	
 	
@@ -294,8 +294,8 @@ function createDisplay(num) {
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
 	document.getElementById("footer").innerHTML = "&nbsp;"
-	document.getElementById("footer").style.background = "royalBlue";
-	document.getElementById("footer").style.color = "light#306EFF";
+	document.getElementById("footer").style.background = "rgba(65, 105, 225,0.5)";
+	document.getElementById("footer").style.color = "lightrgba(65, 105, 225)";
 	
 	
 }
