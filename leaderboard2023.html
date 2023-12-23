@@ -200,10 +200,11 @@ arrMonths = ["January", "February", "March", "April", "May", "June", "July", "Au
 	} else {
                 createSmallDisplay()
 		// not a comp day or no results
-		document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="170px" width="165px"></img>';
+		
 		//document.getElementById("footer").innerHTML = '';
 		setTimeout(function() {
 			document.getElementById("nocomp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 5 seconds"
+			document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="170px" width="165px"></img>';
 		}, 200)
 		setTimeout(function() {
 			document.getElementById("nocomp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 4 seconds"
@@ -230,10 +231,10 @@ function createSmallDisplay() {
 	// empty names
 	select.innerHTML = "";
 	// create comp holder
-	var el = document.createElement("div");
-	el.id = "notyet";
+//	var el = document.createElement("div");
+//	el.id = "notyet";
 	//el.setAttribute("class", "grid-item-top");
-	select.appendChild(el);
+//	select.appendChild(el);
 	
 	
 	var el = document.createElement("div");
