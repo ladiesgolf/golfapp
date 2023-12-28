@@ -18,7 +18,7 @@
 }
 body {
        color: white;
-      background-color: darkSlateBlue;
+      background-color: darkSlateGray;
       font-family: Arial, Helvetica, sans-serif;
      // overflow-y: hidden; 
      padding-left: 20px;
@@ -30,7 +30,7 @@ body {
       grid-template-columns: 15vw auto 15vw 15vw;
    //   padding-left: 20px;
    border: 5px solid #787878;
-      border-radius: 5px;
+   border-radius: 5px;
     }
    
     .grid-item {
@@ -78,7 +78,7 @@ body {
 <body>
 <div id="notyet"></div>
 
- <div class="grid-container" id="leaderlist">
+ <div id="leaderlist">
 
  <!-- created by script --> 
      
@@ -152,10 +152,10 @@ var dataStream = await fetch(
 	if(ddseconds < 10) {
 		ddseconds = "0" + ddseconds
 	}
-arrMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+	arrMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 		// create HTML
 	//createDisplay(arrPlayer.length)
-	if(resultsarray[0].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1) {
+	if(resultsarray[0].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -10) {
 		// create HTML
 	        createDisplay(arrPlayer.length)
 		// comp day
@@ -173,6 +173,10 @@ arrMonths = ["January", "February", "March", "April", "May", "June", "July", "Au
 				displayplayer = bg + arrPlayer[i] + "</p>";
 				displaypoints = bg + arrPoints[i] + "</p>";
 				displaytwos   = bg + arrTwos[i]   + "&nbsp;</p>";
+				
+				// add class
+				document.getElementById("leaderlist").classList.add("grid-container");
+				
 				document.getElementById("pos"    + i).innerHTML = displaypos
 				document.getElementById("player" + i).innerHTML = displayplayer
 				document.getElementById("points" + i).innerHTML = displaypoints
@@ -189,6 +193,10 @@ arrMonths = ["January", "February", "March", "April", "May", "June", "July", "Au
 				displayplayer = bg + arrPlayer[i] + "</p>";
 				displaypoints = bg + arrPoints[i] + "</p>";
 				displaytwos   = bg + arrTwos[i]   + "&nbsp;</p>";
+				
+				// add class
+				document.getElementById("leaderlist").classList.add("grid-container");
+				
 				document.getElementById("pos"    + i).innerHTML = displaypos
 				document.getElementById("player" + i).innerHTML = displayplayer
 				document.getElementById("points" + i).innerHTML = displaypoints
@@ -204,7 +212,7 @@ arrMonths = ["January", "February", "March", "April", "May", "June", "July", "Au
 		//document.getElementById("footer").innerHTML = '';
 		setTimeout(function() {
 			document.getElementById("nocomp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 5 seconds"
-			document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="170px" width="165px"></img>';
+		document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="170px" width="165px"></img>';		
 		}, 200)
 		setTimeout(function() {
 			document.getElementById("nocomp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 4 seconds"
@@ -228,22 +236,11 @@ function createSmallDisplay() {
 	// create HTML to hold results
 	var select = document.getElementById("leaderlist");
 	select.classList.remove("grid-container")
-	// empty names
 	select.innerHTML = "";
-	// create comp holder
-//	var el = document.createElement("div");
-//	el.id = "notyet";
-	//el.setAttribute("class", "grid-item-top");
-//	select.appendChild(el);
-	
-	
 	var el = document.createElement("div");
 	el.id = "nocomp";
-	//el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
-	//document.getElementById("top1").innerHTML = "&nbsp;"
-	//document.getElementById("top1").style.background = "#787878";
-	//document.getElementById("top1").style.color = "cyan";
+
 	
 
 }
