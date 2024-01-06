@@ -1394,16 +1394,10 @@
     var touchstartX = 0;
     var touchendX = 0;
     // do stuff when swiped
-    function checkDirection() {
+ function checkDirection() {
       if (touchendX < touchstartX) {
-        // clear swipe icon
-        console.log("here 1")
-        document.getElementById("swiperight").innerHTML = "";
-        console.log("here 2")
-        // unblur submit button
-        // document.getElementById("submitwrapper").style.filter = "none";
+        // show submit button
         document.getElementById("submitwrapper").style.visibility = "visible";
-
         if (localStorage.getItem("player") == null || localStorage.getItem("hcp") == null) {
           // prevent some false messages
           if ((touchstartX - touchendX) > 100) {
@@ -1411,7 +1405,27 @@
           }
         }
       }
+      // sort out arrows if swiped
+      setTimeout(function() {
+          if (checkVisible("setup")) {
+              // hide left arrow, show only right
+              document.getElementById("goleft").style.display = "none";
+              document.getElementById("goright").style.display = "block";
+          }   
+          if (checkVisible("front")) {
+              // show left and right arrow
+              document.getElementById("goleft").style.display = "block";
+              document.getElementById("goright").style.display = "block";
+          } 
+          if (checkVisible("back")) {
+              // hide right arrow, show only left
+              document.getElementById("goleft").style.display = "block";
+              document.getElementById("goright").style.display = "none";
+          }
+      }, 700);
+      
     }
+    
     document.addEventListener('touchstart', e => {
       touchstartX = e.changedTouches[0].screenX;
     });
@@ -1419,7 +1433,7 @@
       touchendX = e.changedTouches[0].screenX;
       checkDirection();
     });
-
+    
     //====================================================
     //
     //====================================================
@@ -2371,6 +2385,62 @@ rulestxt += "<br><br><br><br>"
 document.getElementById("showrules").innerHTML = rulestxt;
 document.getElementById("showrules").style.visibility = "visible";
  
+}
+
+function goLeft() {
+   //console.log("goLeft")
+   document.getElementById("container").scrollBy(-window.innerWidth,0);
+   
+   setTimeout(function() {
+   if (checkVisible("setup")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "none";
+      document.getElementById("goright").style.display = "block";
+   }   
+   if (checkVisible("front")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "block";
+      document.getElementById("goright").style.display = "block";
+   } 
+   if (checkVisible("back")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "block";
+      document.getElementById("goright").style.display = "none";
+   } 
+   },200);
+
+}
+
+function goRight() {
+  document.getElementById("container").scrollBy(window.innerWidth,0);
+  setTimeout(function() {
+  if (checkVisible("setup")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "none";
+      document.getElementById("goright").style.display = "block";
+   }   
+   if (checkVisible("front")) {
+      // show left and right arrow
+      document.getElementById("goleft").style.display = "block";
+      document.getElementById("goright").style.display = "block";
+   } 
+   if (checkVisible("back")) {
+      // hide right arrow, show only left
+      document.getElementById("goleft").style.display = "block";
+      document.getElementById("goright").style.display = "none";
+   }
+   },200);
+   
+}
+
+function checkVisible(elmid) {
+  var elm = document.getElementById(elmid);
+  var rect = elm.getBoundingClientRect();
+  if (rect.left < 10) {
+    return true;
+  } else {
+    return false;
+  }  
 }
 
 
